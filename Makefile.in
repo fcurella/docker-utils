@@ -1,0 +1,20 @@
+.PHONY: link
+link: uninstall
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	ln -s bin/docker-rm-all (DESTDIR)$(PREFIX)/bin/
+
+.PHONY: install
+install: uninstall
+	mkdir -p $(DESTDIR)$(PREFIX)/bin
+	cp bin/* $(DESTDIR)$(PREFIX)/bin/
+
+.PHONY: uninstall
+uninstall:
+	rm $(DESTDIR)$(PREFIX)/bin/docker-rm-all
+	rm $(DESTDIR)$(PREFIX)/bin/docker-rmi-all
+
+
+.PHONY: clean
+clean:
+	rm Makefile
+
